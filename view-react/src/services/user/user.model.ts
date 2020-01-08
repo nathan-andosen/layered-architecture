@@ -1,4 +1,4 @@
-import { ObservableStore } from '../../../app-services/observable-store';
+import { ObservableStore } from '../observable-store';
 import { IUserData } from './user.interfaces';
 import { Subscription, Observable } from 'rxjs';
 
