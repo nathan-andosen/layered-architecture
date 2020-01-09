@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
-    "@rescripts/cli": "0.0.13"
+    "@rescripts/cli": "0.0.13",
+    "ts-loader": "^6.2.1"
   }
 }

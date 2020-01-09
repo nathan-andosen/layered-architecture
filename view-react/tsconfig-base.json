@@ -20,6 +20,8 @@
     "strict": false
   },
   "include": [
-    "src"
+    "src",
+    "../domain/**/*.ts",
+    "../app-services/**/*.ts"
   ]
 }

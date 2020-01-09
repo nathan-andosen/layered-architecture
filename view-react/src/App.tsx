@@ -2,7 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { UserModel, IUserData } from './services/user';
-// import { UserModel } from '../../domain/features/user';
+// import { UserModel } from '../../domain/features/user/user.model';
+// import { TEST } from '../../domain/test';
+// import { TEST } from '@domain/test';
 
 interface IProps {
   title?: string;
