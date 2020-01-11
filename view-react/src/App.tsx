@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import { UserModel, IUserData } from './services/user';
 // import { UserModel } from '../../domain/features/user/user.model';
-// import { TEST } from '../../domain/test';
+import { TEST } from '../../domain/test';
+// import { TEST } from './test';
 // import { TEST } from '@domain/test';
 
 interface IProps {
@@ -17,7 +18,8 @@ export default class App extends React.Component<IProps> {
     super(props);
     this.user = new UserModel();
     this.user.setData({
-      firstname: 'React',
+      firstname: TEST,
+      // firstname: 'React',
       lastname: 'Test'
     });
 
