@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { AppRoutingModule } from '@core/routing/app-routing.module';
-
+import { HeaderComponent } from '@core/components/header';
 
 @NgModule({
   imports: [
@@ -9,11 +9,12 @@ import { AppRoutingModule } from '@core/routing/app-routing.module';
     AppRoutingModule
   ],
   declarations: [
-
+    HeaderComponent
   ],
   exports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HeaderComponent
   ]
 })
 export class CoreModule {

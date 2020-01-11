@@ -1,0 +1,14 @@
+@import "variables";
+
+:host {
+  display: block;
+}
+
+header {
+  height: ($size-base-value * 4);
+  // background-color: $color-secondary;
+
+  h2 {
+    font-weight: 400;
+  }
+}

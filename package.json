@@ -17,5 +17,8 @@
   "homepage": "https://github.com/nathan-andosen/layered-architecture#readme",
   "dependencies": {
     "rxjs": "^6.5.4"
+  },
+  "devDependencies": {
+    "tslint": "^5.20.1"
   }
 }
