@@ -1,8 +1,18 @@
 @import "variables";
+@import "mixins";
+@import "~bootstrap/scss/bootstrap.scss";
 @import "utilities";
 @import "typography";
 
 html, body {
+  height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
+}
+
+app-root {
+  display: block;
+  height: 100%;
+  width: 100%;
 }

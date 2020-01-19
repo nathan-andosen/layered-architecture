@@ -89,7 +89,7 @@ located in._
 
 # Our example app
 
-To demonstrate this architecture, we will build an app, it will be a simple app where a user can signin and add notes. The notes can be categoriesed.
+To demonstrate this architecture, we will build an app, it will be a simple chatting app.
 
 ### App requirements
 
@@ -97,11 +97,9 @@ __App functionality__
 
 * User signin
 * User / App settings
-  * Change settings of the app (maybe light / dark theme)
-* Authentication via a fake api
-* CRUD operations of a note (to a fake database) via api
-* CRUD operations of a category (to a fake database) via api
-* Some users will only have read access, others will have read & write
+  * Change settings of the app (maybe light / dark theme, nickname)
+* Authentication via Firebase
+* CRUD operations on Cloud Firestore database
 * Routing (different pages in the app)
-* Search all notes
+* Search within a channel
   * Use web worker so not to block UI thread

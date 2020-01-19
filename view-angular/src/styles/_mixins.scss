@@ -1,0 +1,11 @@
+
+
+@mixin primaryBGGradient() {
+  background: rgb(114,143,247);
+  background: linear-gradient(135deg, rgba(114,143,247,1) 0%, rgba(98,127,242,1) 100%);
+}
+
+
+@mixin raisedShadowExtraLarge() {
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
+}
