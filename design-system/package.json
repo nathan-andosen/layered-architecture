@@ -15,8 +15,8 @@
     "loader/"
   ],
   "scripts": {
-    "build": "stencil build --docs",
-    "build-dist": "bash ./scripts/build-dist.sh",
+    "build-old": "stencil build --docs",
+    "build": "node ./scripts/build.js",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
@@ -24,7 +24,9 @@
     "dev": "npm run start"
   },
   "devDependencies": {
-    "@stencil/core": "^1.8.4"
+    "@stencil/core": "^1.8.4",
+    "chokidar": "^3.3.1",
+    "yargs": "^15.1.0"
   },
   "license": "MIT"
 }
