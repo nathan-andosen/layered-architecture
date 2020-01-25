@@ -8,5 +8,10 @@ input {
   padding: 0 1rem;
   margin: 0;
   box-sizing: border-box;
-
+  font-size: 1rem;
+  font-family: inherit;
+  border-radius: 40px;
+  background-color: #F7F7F7;
+  border: 1px solid #ccc;
+  box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.2);
 }
