@@ -10,6 +10,9 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
+  interface AppInput {
+    'placeholder'?: string | null;
+  }
   interface MyComponent {
     /**
     * The first name
@@ -29,17 +32,28 @@ export namespace Components {
 declare global {
 
 
+  interface HTMLAppInputElement extends Components.AppInput, HTMLStencilElement {}
+  var HTMLAppInputElement: {
+    prototype: HTMLAppInputElement;
+    new (): HTMLAppInputElement;
+  };
+
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
     prototype: HTMLMyComponentElement;
     new (): HTMLMyComponentElement;
   };
   interface HTMLElementTagNameMap {
+    'app-input': HTMLAppInputElement;
     'my-component': HTMLMyComponentElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface AppInput {
+    'onAppFocus'?: (event: CustomEvent<CustomEvent>) => void;
+    'placeholder'?: string | null;
+  }
   interface MyComponent {
     /**
     * The first name
@@ -56,6 +70,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'app-input': AppInput;
     'my-component': MyComponent;
   }
 }
@@ -66,6 +81,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'app-input': LocalJSX.AppInput & JSXBase.HTMLAttributes<HTMLAppInputElement>;
       'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
     }
   }

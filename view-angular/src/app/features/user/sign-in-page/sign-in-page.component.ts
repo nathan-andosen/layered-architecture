@@ -15,19 +15,31 @@ export class SignInPageComponent {
 
 
   constructor() {
-    const ajaxSrv = new AjaxRequestService();
-    ajaxSrv.get('assets/dummy-data/user-data.json', {})
-    .then((res) => {
-      console.log('SignInPageComponent success', res);
-      this.user = new UserModel();
-      this.user.setData((res as any));
-      setTimeout(() => {
-        this.user.updateData({ firstname: 'Nathan' });
-      }, 2000);
-    })
-    .catch((err) => {
-      console.log('SignInPageComponent error', err);
-    });
+    // const ajaxSrv = new AjaxRequestService();
+    // ajaxSrv.get('assets/dummy-data/user-data.json', {})
+    // .then((res) => {
+    //   console.log('SignInPageComponent success', res);
+    //   this.user = new UserModel();
+    //   this.user.setData((res as any));
+    //   setTimeout(() => {
+    //     this.user.updateData({ firstname: 'Nathan' });
+    //   }, 2000);
+    // })
+    // .catch((err) => {
+    //   console.log('SignInPageComponent error', err);
+    // });
+  }
+
+
+  appInpFocus(e) {
+    console.log('In angular appFocus');
+    console.log(e);
+
+  }
+
+  inpFocus(e) {
+    console.log('In angular focus');
+    console.log(e);
   }
 
 }

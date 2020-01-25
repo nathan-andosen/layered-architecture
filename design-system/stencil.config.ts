@@ -1,4 +1,5 @@
 import { Config } from '@stencil/core';
+import { sass } from '@stencil/sass';
 declare var process: any;
 
 const distOnlyBuild = (process.env.NODE_ENV && process.env.NODE_ENV === 'dev');
@@ -31,5 +32,8 @@ if (distOnlyBuild) {
 // stencil config
 export const config: Config = {
   namespace: 'design-system',
-  outputTargets: buildTargets
+  outputTargets: buildTargets,
+  plugins: [
+    sass()
+  ]
 };
