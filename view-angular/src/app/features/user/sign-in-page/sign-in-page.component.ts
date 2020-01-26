@@ -12,6 +12,7 @@ import { UserModel } from '@domain/features/user';
 })
 export class SignInPageComponent {
   user: UserModel;
+  inpEmail: string;
 
 
   constructor() {
@@ -42,4 +43,9 @@ export class SignInPageComponent {
     console.log(e);
   }
 
+
+
+  signIn() {
+    console.log('inpEmail = ' + this.inpEmail);
+  }
 }

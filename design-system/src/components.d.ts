@@ -11,7 +11,13 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface AppInput {
+    'icon'?: string | null;
+    'name': string;
     'placeholder'?: string | null;
+    /**
+    * The value of the input.
+    */
+    'value'?: string | number | null;
   }
   interface MyComponent {
     /**
@@ -51,8 +57,15 @@ declare global {
 
 declare namespace LocalJSX {
   interface AppInput {
+    'icon'?: string | null;
+    'name'?: string;
     'onAppFocus'?: (event: CustomEvent<CustomEvent>) => void;
+    'onValueChange'?: (event: CustomEvent<any>) => void;
     'placeholder'?: string | null;
+    /**
+    * The value of the input.
+    */
+    'value'?: string | number | null;
   }
   interface MyComponent {
     /**

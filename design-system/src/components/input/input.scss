@@ -1,7 +1,10 @@
+@import "../../style/variables";
+
 :host {
   display: block;
+  position: relative;
+  width: 200px;
 }
-
 
 input {
   min-height: 40px;
@@ -14,4 +17,18 @@ input {
   background-color: #F7F7F7;
   border: 1px solid #ccc;
   box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.2);
+  width: 100%;
+
+  &.has-icon {
+    padding-left: (3rem);
+  }
+}
+
+span.inp-icon {
+  position: absolute;
+  font-size: 20px;
+  top: 50%;
+  margin-top: -10px;
+  left: 1rem;
+  color: $color-primary-500;
 }
