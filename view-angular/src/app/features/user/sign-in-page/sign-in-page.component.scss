@@ -11,6 +11,7 @@
 .sign-in-page {
   .header {
     @include primaryBGGradient();
+    // @include reefGradient();
     position: absolute;
     top: 0px;
     left: 0px;
@@ -38,6 +39,10 @@
     }
     
     app-input {
+      width: 256px;
+    }
+
+    app-button {
       width: 256px;
     }
 

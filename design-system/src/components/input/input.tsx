@@ -18,7 +18,7 @@ export class Input {
   @Element() el: HTMLElement;
 
 
-  @Prop() name = 'testing';
+  // @Prop() name = 'testing';
 
   /**
    * The value of the input.
@@ -54,7 +54,6 @@ export class Input {
   }
 
   private onFocus = (e: any) => {
-    console.log('onFocus', e);
     this.appFocus.emit(e);
   }
 

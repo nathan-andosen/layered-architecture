@@ -1,5 +1,5 @@
-@import "../../style/variables";
 @import "../../style/mixins";
+@import "../../style/variables";
 
 :host {
   display: block;
@@ -7,7 +7,7 @@
   width: 200px;
 }
 
-input {
+button {
   min-height: 40px;
   padding: 0 1rem;
   margin: 0;
@@ -15,27 +15,21 @@ input {
   font-size: 1rem;
   font-family: inherit;
   border-radius: 40px;
-  background-color: #F7F7F7;
-  border: 1px solid #ccc;
-  // box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.2);
+  // @include primaryBGGradient();
+  @include raisedShadowSmall();
+  background-color: $color-primary-500;
   width: 100%;
+  border: none;
+  color: #fff;
+  cursor: pointer;
   @include commonUIElementTransition();
-
-
-  &.has-icon {
-    padding-left: (3rem);
+  
+  &:hover {
+    // @include primaryBGGradientDark();
+    background-color: $color-primary-600;
   }
 
   &:focus {
     @include focus();
   }
-}
-
-span.inp-icon {
-  position: absolute;
-  font-size: 20px;
-  top: 50%;
-  margin-top: -10px;
-  left: 1rem;
-  color: $color-primary-500;
 }

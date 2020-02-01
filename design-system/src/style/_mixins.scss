@@ -1,0 +1,27 @@
+
+@mixin primaryBGGradient() {
+  background: rgb(114,143,247);
+background: linear-gradient(135deg, rgba(114,143,247,1) 0%, rgba(87,113,217,1) 100%);
+}
+
+@mixin primaryBGGradientDark() {
+  background: rgb(106,132,230);
+  background: linear-gradient(135deg, rgba(106,132,230,1) 0%, rgba(82,106,204,1) 100%);
+}
+
+@mixin raisedShadowSmall() {
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.3);
+}
+
+
+@mixin focus() {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(82,106,204,.4);
+}
+
+@mixin commonUIElementTransition() {
+  transition: color .15s ease-in-out,
+    background-color .15s ease-in-out,
+    border-color .15s ease-in-out,
+    box-shadow .15s ease-in-out;
+}

@@ -10,55 +10,45 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
+  interface AppButton {
+    'color'?: 'primary' | 'success' | 'danger';
+  }
   interface AppInput {
     'icon'?: string | null;
-    'name': string;
     'placeholder'?: string | null;
     /**
     * The value of the input.
     */
     'value'?: string | number | null;
   }
-  interface MyComponent {
-    /**
-    * The first name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
-  }
 }
 
 declare global {
 
+
+  interface HTMLAppButtonElement extends Components.AppButton, HTMLStencilElement {}
+  var HTMLAppButtonElement: {
+    prototype: HTMLAppButtonElement;
+    new (): HTMLAppButtonElement;
+  };
 
   interface HTMLAppInputElement extends Components.AppInput, HTMLStencilElement {}
   var HTMLAppInputElement: {
     prototype: HTMLAppInputElement;
     new (): HTMLAppInputElement;
   };
-
-  interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
-  };
   interface HTMLElementTagNameMap {
+    'app-button': HTMLAppButtonElement;
     'app-input': HTMLAppInputElement;
-    'my-component': HTMLMyComponentElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface AppButton {
+    'color'?: 'primary' | 'success' | 'danger';
+  }
   interface AppInput {
     'icon'?: string | null;
-    'name'?: string;
     'onAppFocus'?: (event: CustomEvent<CustomEvent>) => void;
     'onValueChange'?: (event: CustomEvent<any>) => void;
     'placeholder'?: string | null;
@@ -67,24 +57,10 @@ declare namespace LocalJSX {
     */
     'value'?: string | number | null;
   }
-  interface MyComponent {
-    /**
-    * The first name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
-  }
 
   interface IntrinsicElements {
+    'app-button': AppButton;
     'app-input': AppInput;
-    'my-component': MyComponent;
   }
 }
 
@@ -94,8 +70,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'app-button': LocalJSX.AppButton & JSXBase.HTMLAttributes<HTMLAppButtonElement>;
       'app-input': LocalJSX.AppInput & JSXBase.HTMLAttributes<HTMLAppInputElement>;
-      'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
     }
   }
 }
