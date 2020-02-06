@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserModel } from '@domain/features/user';
+import { AppService } from '@domain/services';
 
 
 @Component({
@@ -11,7 +12,8 @@ export class AppComponent {
   title = 'app-angular';
   msg = 'Test';
 
-  constructor() {
+  constructor(private appSrv: AppService) {
+    this.appSrv.initializeApp();
     const user = new UserModel();
     this.msg = user.test();
   }

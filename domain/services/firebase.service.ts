@@ -15,7 +15,6 @@ export class FirebaseService {
 
     // setup the firestore database
     this.db = firestore();
-    this.db.settings({ timestampsInSnapshots: true });
   }
 
 

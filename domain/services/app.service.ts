@@ -1,9 +1,11 @@
-import { FIREBASE_CONFIG } from '../configs';
-import { initializeApp, firestore } from 'firebase';
+import { DI } from './dependency-injection.service';
+import { FirebaseService } from './firebase.service';
 
 
 export class AppService {
-  private db: firestore.Firestore;
+  @DI.Inject(FirebaseService, 'FirebaseService')
+  firebaseSrv: FirebaseService;
+
 
   /**
    * Initialise the app
@@ -11,16 +13,6 @@ export class AppService {
    * @memberof AppService
    */
   initializeApp() {
-    // init the firebase app
-    initializeApp(FIREBASE_CONFIG);
-
-    // setup the firestore database
-    this.db = firestore();
-    this.db.settings({ timestampsInSnapshots: true });
-  }
-
-
-  getDb(): firestore.Firestore {
-    return this.db;
+    this.firebaseSrv.initializeApp();
   }
 }

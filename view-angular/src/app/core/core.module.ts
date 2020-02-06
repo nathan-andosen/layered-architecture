@@ -1,7 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { NgModule, Optional, SkipSelf } from '@angular/core';
+import {
+  NgModule,
+  Optional,
+  SkipSelf,
+  ModuleWithProviders
+} from '@angular/core';
 import { AppRoutingModule } from '@core/routing/app-routing.module';
 import { HeaderComponent } from '@core/components/header';
+import { AppService, DI } from '@domain/services';
+
 
 @NgModule({
   imports: [
@@ -11,6 +18,9 @@ import { HeaderComponent } from '@core/components/header';
   declarations: [
     HeaderComponent
   ],
+  providers: [
+
+  ],
   exports: [
     CommonModule,
     AppRoutingModule,
@@ -18,6 +28,18 @@ import { HeaderComponent } from '@core/components/header';
   ]
 })
 export class CoreModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: CoreModule,
+      providers: [
+        {
+          provide: AppService,
+          useValue: DI.getService(AppService, 'AppService')
+        }
+      ]
+    };
+  }
+
   constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
     if (parentModule) {
       throw new Error('CoreModule has already been loaded. You should only '

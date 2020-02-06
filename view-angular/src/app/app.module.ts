@@ -12,7 +12,7 @@ import { CoreModule } from '@core/core.module';
   ],
   imports: [
     BrowserModule,
-    CoreModule
+    CoreModule.forRoot()
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
