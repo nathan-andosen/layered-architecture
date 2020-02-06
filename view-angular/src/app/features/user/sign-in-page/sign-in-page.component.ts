@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   AjaxRequestService
 } from '@app-services/api/ajax-request.service';
@@ -15,7 +16,7 @@ export class SignInPageComponent {
   inpEmail: string;
 
 
-  constructor() {
+  constructor(private router: Router) {
     // const ajaxSrv = new AjaxRequestService();
     // ajaxSrv.get('assets/dummy-data/user-data.json', {})
     // .then((res) => {
@@ -47,5 +48,6 @@ export class SignInPageComponent {
 
   signIn() {
     console.log('inpEmail = ' + this.inpEmail);
+    this.router.navigate(['chat']);
   }
 }

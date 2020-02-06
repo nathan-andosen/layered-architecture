@@ -12,6 +12,13 @@ const routes: Routes = [
       name: 'user'
     }
   },
+  {
+    path: 'chat',
+    loadChildren: '../../features/chat/chat.module#ChatModule',
+    data: {
+      name: 'chat'
+    }
+  },
 ];
 
 @NgModule({

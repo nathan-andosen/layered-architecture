@@ -4,9 +4,11 @@ class="sign-in-page d-flex justify-content-center align-items-center h-100">
     
   </div>
   <div class="sign-in-container position-relative d-flex">
-    <h1 class="position-absolute w-100">Lets Chat!</h1>
+    <h2 class="position-absolute w-100">Lets Chat!</h2>
 
-    <app-input
+    <h1 class="sub-header">Sign in</h1>
+
+    <app-input class="mt-4"
     [(ngModel)]="inpEmail"
     (appFocus)="appInpFocus($event)"
     (focus)="inpFocus($event)"

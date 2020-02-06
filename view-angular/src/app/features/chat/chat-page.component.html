@@ -1,0 +1,1 @@
+<h1>Chat page</h1>

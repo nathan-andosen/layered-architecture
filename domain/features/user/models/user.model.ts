@@ -1,5 +1,5 @@
-import { ObservableStore } from '../../../app-services/observable-store';
-import { IUserData } from './user.interfaces';
+import { ObservableStore } from '../../../../app-services/observable-store';
+import { IUserData } from '../user.interfaces';
 import { Subscription, Observable } from 'rxjs';
 
 

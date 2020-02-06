@@ -17,6 +17,7 @@
   "homepage": "https://github.com/nathan-andosen/layered-architecture#readme",
   "dependencies": {
     "@stencil/core": "^1.8.5",
+    "firebase": "^7.8.0",
     "rxjs": "^6.5.4"
   },
   "devDependencies": {
