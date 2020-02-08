@@ -9,6 +9,22 @@ const dependencyContainer = {};
  */
 export class DI {
   /**
+   * All singleton services should apply this class decorator
+   *
+   * @static
+   * @param {string} serviceName
+   * @returns
+   * @memberof DI
+   */
+  static Singleton(serviceName: string) {
+    return (target: any) => {
+      if (!serviceName) throw new Error('Please enter a service name');
+      target.diServiceName = serviceName;
+    };
+  }
+
+
+  /**
    * Inject Decorator: Inject a singleton instance of a service
    *
    * @export
@@ -17,11 +33,12 @@ export class DI {
    *   to pass the service name as a string
    * @returns
    */
-  static Inject(service: any, serviceName: string) {
+  static Inject(service: any, serviceName?: string) {
     return (target: any, propName: string): any => {
       Object.defineProperty(target, propName, {
         get: () => {
-          const name = (serviceName) ? serviceName : service.name;
+          const name = (serviceName) ? serviceName : (service.diServiceName)
+          ? service.diServiceName : service.name;
           if (!dependencyContainer[name]) {
             dependencyContainer[name] = new service();
           }
@@ -52,8 +69,9 @@ export class DI {
    * @param {string} [serviceName]
    * @returns {*}
    */
-  static getService(service: any, serviceName: string): any {
-    const name = (serviceName) ? serviceName : service.name;
+  static getService(service: any, serviceName?: string): any {
+    const name = (serviceName) ? serviceName : (service.diServiceName)
+    ? service.diServiceName : service.name;
     if (!dependencyContainer[name] && service) {
       dependencyContainer[name] = new service();
     }

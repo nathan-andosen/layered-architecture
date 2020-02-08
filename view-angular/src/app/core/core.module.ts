@@ -34,7 +34,7 @@ export class CoreModule {
       providers: [
         {
           provide: AppService,
-          useValue: DI.getService(AppService, 'AppService')
+          useValue: DI.getService(AppService)
         }
       ]
     };

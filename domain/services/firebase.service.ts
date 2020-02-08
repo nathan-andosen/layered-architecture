@@ -1,6 +1,8 @@
 import { FIREBASE_CONFIG } from '../configs';
 import { initializeApp, firestore } from 'firebase';
+import { DI } from './dependency-injection.service';
 
+@DI.Singleton('FirebaseService')
 export class FirebaseService {
   private db: firestore.Firestore;
 

@@ -1,9 +1,9 @@
 import { DI } from './dependency-injection.service';
 import { FirebaseService } from './firebase.service';
 
-
+@DI.Singleton('AppService')
 export class AppService {
-  @DI.Inject(FirebaseService, 'FirebaseService')
+  @DI.Inject(FirebaseService)
   firebaseSrv: FirebaseService;
 
 
