@@ -1,5 +1,9 @@
 # Domain-Driver Applications
 
+https://www.hss.edu/conditions_burning-calories-with-exercise-calculating-estimated-energy-expenditure.asp
+
+https://www.verywellfit.com/how-many-calories-you-burn-during-exercise-4111064
+
 #### Goals
 
 Build a web application that is driven by the domain / business logic that is independant of the view framework (Angular, React, Vue). We can try and accomplish this using [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) and a layered architecture.
