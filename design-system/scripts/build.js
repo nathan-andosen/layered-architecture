@@ -32,9 +32,10 @@ const runBuild = () => {
   return new Promise((resolve, reject) => {
     if (watch) process.env.NODE_ENV = 'dev';
     const params = (watch) ? ['build'] : ['build', '--docs'];
-    const subProcess = spawn('./node_modules/.bin/stencil', params, {
+    const subProcess = spawn('bash ./node_modules/.bin/stencil', params, {
       stdio: 'inherit',
-      cwd: ROOT_DIR
+      cwd: ROOT_DIR,
+      shell: (process.platform === 'win32')
     });
     subProcess.on('exit', function(code) {
       if (watch) console.log('waiting...');
