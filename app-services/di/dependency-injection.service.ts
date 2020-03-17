@@ -49,6 +49,21 @@ export class DI {
   }
 
 
+  static InjectViaFactory(factory: DIBaseFactory) {
+    return (target: any, propName: string): any => {
+      Object.defineProperty(target, propName, {
+        get: () => {
+          const name = factory.serviceName;
+          if (!dependencyContainer[name]) {
+            dependencyContainer[name] = factory.create();
+          }
+          return dependencyContainer[name];
+        }
+      });
+    };
+  }
+
+
   /**
    * Set / Override a dependency. Useful when running unit tests
    *
@@ -77,4 +92,17 @@ export class DI {
     }
     return dependencyContainer[name];
   }
+}
+
+
+/**
+ * Factories for creating services should extend this class
+ *
+ * @export
+ * @abstract
+ * @class DIBaseFactory
+ */
+export abstract class DIBaseFactory {
+  abstract serviceName: string;
+  abstract create(): any;
 }
