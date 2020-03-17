@@ -7,7 +7,8 @@ import {
 } from '@angular/core';
 import { AppRoutingModule } from '@core/routing/app-routing.module';
 import { HeaderComponent } from '@core/components/header';
-import { AppService, DI } from '@domain/services';
+import { AppService } from '@domain/app';
+import { DI } from '@app-services/di';
 
 
 @NgModule({

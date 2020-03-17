@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UserModel } from '@domain/features/user';
-import { AppService } from '@domain/services';
+import { UserModel } from '@domain/user';
+import { AppService } from '@domain/app';
 
 
 @Component({

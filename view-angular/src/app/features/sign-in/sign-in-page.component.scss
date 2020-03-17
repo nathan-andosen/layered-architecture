@@ -23,9 +23,7 @@
     width: 480px;
     height: 360px;
     background-color: #fff;
-    border-bottom-left-radius: 128px;
-    border-top-left-radius: 128px;
-    border-top-right-radius: 128px;
+    border-radius: $size-base-value / 2;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -45,6 +43,5 @@
     app-button {
       width: 256px;
     }
-
   }
 }

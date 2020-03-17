@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 
-import { ChatPageComponent } from './chat-page.component';
+import { SignInPageComponent } from './sign-in-page.component';
 
 
 @NgModule({
   declarations: [
-    ChatPageComponent
+    SignInPageComponent
   ],
   imports: [
     CommonModule,
@@ -16,10 +16,14 @@ import { ChatPageComponent } from './chat-page.component';
     RouterModule.forChild([
       {
         path: '',
-        component: ChatPageComponent
+        redirectTo: '/user/signin'
+      },
+      {
+        path: 'signin',
+        component: SignInPageComponent
       }
     ])
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class ChatModule {}
+export class SignInModule {}

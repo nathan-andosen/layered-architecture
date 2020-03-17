@@ -1,5 +1,5 @@
 import { auth } from 'firebase';
-import { isEmail, isSet } from '@app-services/utilities';
+import { isEmail, isSet } from '../../app-services/utilities';
 
 
 export interface ISignIn {

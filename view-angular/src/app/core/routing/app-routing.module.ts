@@ -7,16 +7,17 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    loadChildren: '../../features/user/user.module#UserModule',
+    loadChildren: '../../features/sign-in/sign-in.module#SignInModule',
     data: {
-      name: 'user'
+      name: 'sign-in'
     }
   },
   {
-    path: 'chat',
-    loadChildren: '../../features/chat/chat.module#ChatModule',
+    path: 'calorie-intake',
+    loadChildren:
+      '../../features/calorie-intake/calorie-intake.module#CalorieIntakeModule',
     data: {
-      name: 'chat'
+      name: 'calorie-intake'
     }
   },
 ];

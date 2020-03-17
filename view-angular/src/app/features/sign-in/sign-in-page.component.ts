@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import {
   AjaxRequestService
 } from '@app-services/api/ajax-request.service';
-import { UserModel } from '@domain/features/user';
+import { UserModel } from '@domain/user';
 
 
 @Component({
@@ -14,6 +14,7 @@ import { UserModel } from '@domain/features/user';
 export class SignInPageComponent {
   user: UserModel;
   inpEmail: string;
+
 
 
   constructor(private router: Router) {
@@ -48,6 +49,6 @@ export class SignInPageComponent {
 
   signIn() {
     console.log('inpEmail = ' + this.inpEmail);
-    this.router.navigate(['chat']);
+    this.router.navigate(['calorie-intake']);
   }
 }
