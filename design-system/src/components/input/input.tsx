@@ -9,6 +9,10 @@ import {
   Watch
 } from '@stencil/core';
 
+
+// type TextFieldTypes = 'date' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url' | 'time';
+
+
 @Component({
   tag: 'app-input',
   styleUrls: ['font-icons.scss', 'input.scss'],
@@ -29,6 +33,10 @@ export class Input {
 
   @Prop() placeholder?: string | null;
 
+  @Prop() invalid = false;
+
+  @Prop() type = 'text';
+
   @Event() appFocus: EventEmitter<CustomEvent>;
   @Event() valueChange: EventEmitter;
 
@@ -45,7 +53,6 @@ export class Input {
     // this.emitStyle();
     // this.ionChange.emit({ value: this.value == null ? this.value : this.value.toString() });
   }
-
 
 
   private getValue(): string {
@@ -65,16 +72,23 @@ export class Input {
     this.valueChange.emit(this.value);
   }
 
+
+
+
   render() {
     const value = this.getValue();
 
     return (
-      <Host class={this.icon ? 'has-icon' : ''}>
+      <Host class={{
+        'has-icon': (this.icon && this.icon.length > 0),
+        'is-invalid': this.invalid
+      }}>
         <input
           placeholder={this.placeholder || ''}
           onFocus={this.onFocus}
           onInput={this.onInput}
           value={value}
+          type={this.type}
           class={this.icon ? 'has-icon' : ''}
         />
         {this.icon

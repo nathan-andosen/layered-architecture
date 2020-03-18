@@ -5,6 +5,10 @@
   display: block;
   position: relative;
   width: 200px;
+
+  --background: #F7F7F7;
+  --border: 1px solid #ccc;
+  --icon-color: #{$color-primary-500};
 }
 
 input {
@@ -15,8 +19,8 @@ input {
   font-size: 1rem;
   font-family: inherit;
   border-radius: 40px;
-  background-color: #F7F7F7;
-  border: 1px solid #ccc;
+  background-color: var(--background);
+  border: var(--border);
   width: 100%;
   @include commonUIElementTransition();
 
@@ -36,5 +40,5 @@ span.inp-icon {
   top: 50%;
   margin-top: -10px;
   left: 1rem;
-  color: $color-primary-500;
+  color: var(--icon-color);
 }

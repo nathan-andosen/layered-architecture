@@ -37,11 +37,16 @@
     }
     
     app-input {
-      width: 256px;
+      width: 320px;
     }
 
     app-button {
-      width: 256px;
+      width: 320px;
+    }
+
+    .alert-invalid {
+      color: $color-danger-500;
+      width: 320px;
     }
   }
 }

@@ -1,0 +1,8 @@
+@import "variables";
+
+app-input {
+  &.ng-invalid.ng-touched {
+    --border: 1px solid #{$color-danger-500};
+    --icon-color: #{$color-danger-500};
+  }
+}

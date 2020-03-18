@@ -1,28 +1,28 @@
 import { ObservableStore } from '../../app-services/store';
-import { IUserData } from './user.interfaces';
+import { IUser } from './user.interfaces';
 import { Subscription, Observable } from 'rxjs';
 
 
 export class UserModel {
-  private store: ObservableStore<IUserData>;
+  private store: ObservableStore<IUser>;
 
-  get state$(): Observable<IUserData> {
+  get state$(): Observable<IUser> {
     return this.store.state$;
   }
 
-  get state(): IUserData {
+  get state(): IUser {
     return this.store.state;
   }
 
-  constructor() {
-    this.store = new ObservableStore();
+  constructor(userData: IUser = null) {
+    this.store = new ObservableStore(userData);
   }
 
-  setData(userData: IUserData) {
+  setData(userData: IUser) {
     this.store.patchState(userData);
   }
 
-  updateData(data: Partial<IUserData>) {
+  updateData(data: Partial<IUser>) {
     this.store.patchState(data);
   }
 

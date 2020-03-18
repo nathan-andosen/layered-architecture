@@ -8,19 +8,27 @@ class="sign-in-page d-flex justify-content-center align-items-center h-100">
 
     <h1 class="sub-header">Sign in</h1>
 
-    <app-input class="mt-4"
-    [(ngModel)]="inpEmail"
-    (appFocus)="appInpFocus($event)"
-    (focus)="inpFocus($event)"
-    placeholder="Email"
-    icon="email">
-    </app-input>
+    <form [formGroup]="signinFormGroup" (ngSubmit)="formSignin()"
+    novalidate="true">
+      <app-input class="mt-4" formControlName="email"
+      (keyup.enter)="formSignin()" placeholder="Email" icon="email">
+      </app-input>
 
-    <app-input class="mt-4"
-    placeholder="Password"
-    icon="password">
-    </app-input>
+      <app-input class="mt-4" formControlName="password" placeholder="Password"
+      (keyup.enter)="formSignin()" type="password" icon="password">
+      </app-input>
 
-    <app-button (click)="signIn()" class="mt-4">Sign in</app-button>
+      <app-button type="submit" (click)="formSignin()" class="mt-4">
+        Sign in
+      </app-button>
+
+      <p *ngIf="invalidAlertTxt" class="mt-4 alert-invalid">
+        {{ invalidAlertTxt }}
+      </p>
+    </form>
+
+    
+
+    
   </div>
 </div>

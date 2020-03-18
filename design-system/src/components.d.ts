@@ -15,7 +15,9 @@ export namespace Components {
   }
   interface AppInput {
     'icon'?: string | null;
+    'invalid': boolean;
     'placeholder'?: string | null;
+    'type': string;
     /**
     * The value of the input.
     */
@@ -49,9 +51,11 @@ declare namespace LocalJSX {
   }
   interface AppInput {
     'icon'?: string | null;
+    'invalid'?: boolean;
     'onAppFocus'?: (event: CustomEvent<CustomEvent>) => void;
     'onValueChange'?: (event: CustomEvent<any>) => void;
     'placeholder'?: string | null;
+    'type'?: string;
     /**
     * The value of the input.
     */

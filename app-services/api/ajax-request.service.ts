@@ -1,11 +1,13 @@
 import { ajax } from 'rxjs/ajax';
 import { map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { DI } from '../di';
 
+@DI.Singleton('AjaxRequestService')
 export class AjaxRequestService {
 
 
-  get(url: string, headers: any) {
+  get(url: string, headers: any): Promise<any> {
 
     const obs$ = ajax.getJSON(url, headers)
     .pipe(

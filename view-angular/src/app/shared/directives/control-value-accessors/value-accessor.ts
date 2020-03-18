@@ -24,11 +24,11 @@ export class ValueAccessor implements ControlValueAccessor {
     }
   }
 
-  @HostListener('ionBlur', ['$event.target'])
+  @HostListener('blur', ['$event.target'])
   _handleBlurEvent(el: any) {
+    console.log('1111111 blur');
     if (el === this.el.nativeElement) {
       this.onTouched();
-      // setIonicClasses(this.el);
     }
   }
 
