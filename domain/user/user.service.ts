@@ -2,7 +2,6 @@ import { isEmail, isSet } from '../../app-services/utilities';
 import { DI } from '../../app-services/di';
 import { ApiService } from '../api';
 import { UserModel } from './user.model';
-import { AuthService } from '../auth';
 
 export interface ISigninResponse {
   valid: boolean;
@@ -12,16 +11,31 @@ export interface ISigninResponse {
   user?: UserModel;
 }
 
+
+const USER_ID_KEY = 'signin-user-id';
+
+
 @DI.Singleton('UserService')
 export class UserService {
 
   @DI.Inject(ApiService)
   apiSrv: ApiService;
 
-  @DI.Inject(AuthService)
-  authSrv: AuthService;
+  private _signedInUser: UserModel;
+  set signedInUser(user: UserModel) {
+    if (!user) {
+      localStorage.removeItem(USER_ID_KEY);
+      this._signedInUser = null;
+      return;
+    }
+    localStorage.setItem(USER_ID_KEY, user.state.id);
+    this._signedInUser = user;
+  }
+  get signedInUser(): UserModel {
+    return this._signedInUser;
+  }
 
-  validateSignIn(email: string, password: string): ISigninResponse {
+  private validateSignIn(email: string, password: string): ISigninResponse {
     const emailValid = isEmail(email);
     const passwordValid = (isSet(password) && password.length > 0);
     return {
@@ -40,7 +54,7 @@ export class UserService {
       .then((response) => {
         if (response.success) {
           const user = new UserModel(response.data);
-          this.authSrv.signedInUser = user;
+          this.signedInUser = user;
           return Promise.resolve({
             valid: true,
             user
@@ -58,4 +72,22 @@ export class UserService {
     }
     return Promise.resolve(validationResults);
   }
+
+
+  fetchSignedInUser(): Promise<UserModel> {
+    const userId = localStorage.getItem(USER_ID_KEY);
+    if (!userId) return Promise.resolve(null);
+    return this.apiSrv.user.fetchUser(userId)
+    .then((userData) => {
+      const user = new UserModel(userData);
+      this.signedInUser = user;
+      return Promise.resolve(user);
+    })
+    .catch((err) => {
+      return Promise.reject(err);
+    });
+  }
+
+
+
 }

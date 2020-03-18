@@ -3,7 +3,5 @@ import { UserModel } from '../user';
 
 @DI.Singleton('AuthService')
 export class AuthService {
-  signedInUser: UserModel;
-
 
 }

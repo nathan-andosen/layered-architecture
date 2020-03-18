@@ -1,7 +1,19 @@
 {
   "extends": "tslint:recommended",
   "rules": {
-    "align": [ false ],
+    "variable-name": {
+      "options": [
+        "ban-keywords",
+        "check-format",
+        "allow-leading-underscore"
+      ]
+    },
+    "align": [
+      false,
+      "parameters",
+      "statements",
+      "arguments"
+    ],
     "curly": false,
     "array-type": false,
     "arrow-parens": false,
